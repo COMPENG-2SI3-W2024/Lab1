@@ -56,7 +56,16 @@ void ItemBin::generateItem()
     Player** plList = gmRef->getPlayerListRef();
     objPosList *playerPos = plList[0]->getPlayerPos();
 
-    int bitVec[gmRef->getBoardSizeX()][gmRef->getBoardSizeY()]= {0};
+    //int bitVec[gmRef->getBoardSizeX()][gmRef->getBoardSizeY()]= {0};
+
+    // to prevent stack overflow
+    int xsize = gmRef->getBoardSizeX();
+    int ysize = gmRef->getBoardSizeY();
+    int** bitVec = new int*[xsize];
+    for(int i = 0; i < xsize; i++)
+       bitVec[i] = new int[ysize];
+
+
     int playerLength = playerPos->getSize();    
 
     objPos target;
@@ -100,6 +109,10 @@ void ItemBin::generateItem()
     myItem->setNum(rand() % 100);   
 
     drawItem();
+
+    for(int i = 0; i < xsize; i++)
+        delete[] bitVec[i];
+    delete bitVec;
 }
 
 objPos ItemBin::getItem()

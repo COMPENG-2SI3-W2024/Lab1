@@ -117,6 +117,6 @@ void ItemBin::generateItem()
 
 objPos ItemBin::getItem()
 {
-    objPos temp{myItem->getX(), myItem->getY(), myItem->getNum(), myItem->getPF(), myItem->getSym()};
+    objPos temp(myItem->getX(), myItem->getY(), myItem->getNum(), myItem->getPF(), myItem->getSym());
     return temp;
 }

@@ -112,7 +112,7 @@ void ItemBin::generateItem()
 
     for(int i = 0; i < xsize; i++)
         delete[] bitVec[i];
-    delete bitVec;
+    delete[] bitVec;
 }
 
 objPos ItemBin::getItem()

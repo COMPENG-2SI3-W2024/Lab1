@@ -7,7 +7,7 @@ ifeq (${OS}, Windows_NT)
 	OSSETTING = -DWINDOWS
 else
 	OSSETTING = -DPOSIX
-	POSTLINKER = -lncurses   ## uncomment this if on Linux
+	POSTLINKER = -lncurses   
 endif
 
 EXEC = Project
